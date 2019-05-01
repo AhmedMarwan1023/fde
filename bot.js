@@ -1,44 +1,42 @@
-client.user.setUsername(argresult).then
-    message.channel.sendMessage(**${argresult}** : تم تغيير أسم البوت إلى)
-} else
-  if (message.content.startsWith(adminprefix + 'setavatar')) {
-client.user.setAvatar(argresult);
-      } else
-  if (message.content.startsWith(adminprefix + 'wt')) {
-  client.user.setActivity(argresult, {type:'WATCHING'});
-  } else
-  if (message.content.startsWith(adminprefix + 'ls')) {
-  client.user.setActivity(argresult , {type:'LISTENING'});
-  } else
-if (message.content.startsWith(adminprefix + 'sett')) {
-  client.user.setGame(argresult, "https://www.twitch.tv/xkilleryt%22);//حقوق دايموند كودزحقوق دايموند كودز
-}
-});
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const adminprefix = "-";
-const devs = ['510478269045538839','314522365218521099'];
+var prefix = "5"
+var adminprefix = '5'
+ // Alpha Codes Ghost
+
+const developers = ["472413769700474901","314522365218521099"]
 client.on('message', message => {
-  var argresult = message.content.split(`).slice(1).join(' ');
-    if (!devs.includes(message.author.id)) return;
-    
-if (message.content.startsWith(adminprefix + 'setgame')) {
-  client.user.setGame(argresult);
-} else 
-  if (message.content.startsWith(adminprefix + 'setname')) {
-client.user.setUsername(argresult).then
-    message.channel.sendMessage(${argresult} : تم تغيير أسم البوت إلى`)
-} else
-  if (message.content.startsWith(adminprefix + 'setavatar')) {
-client.user.setAvatar(argresult);
-      } else
-  if (message.content.startsWith(adminprefix + 'wt')) {
+    var argresult = message.content.split(` `).slice(1).join(' ');  // Alpha Codes Ghost
+      if (!developers.includes(message.author.id)) return;
+      
+  if (message.content.startsWith(adminprefix + 'setg')) {
+    client.user.setGame(argresult);
+      message.channel.send(`**✅   ${argresult}**`)
+  } else 
+     if (message.content === (adminprefix + "leave")) {
+    message.guild.leave();        
+  } else  
+  if (message.content.startsWith(adminprefix + 'setw')) {  // Alpha Codes Ghost
   client.user.setActivity(argresult, {type:'WATCHING'});
-  } else
-  if (message.content.startsWith(adminprefix + 'ls')) {
+      message.channel.send(`**✅   ${argresult}**`)
+  } else 
+  if (message.content.startsWith(adminprefix + 'setl')) {
   client.user.setActivity(argresult , {type:'LISTENING'});
-  } else
-if (message.content.startsWith(adminprefix + 'sett')) {
-  client
-``
-client.login(process.env.BOT_TOKEN);
+      message.channel.send(`**✅   ${argresult}**`)
+  } else 
+  if (message.content.startsWith(adminprefix + 'sets')) {
+    client.user.setGame(argresult, "https://www.twitch.tv/dream");  // Alpha Codes Ghost
+      message.channel.send(`**✅**`)
+  }
+  if (message.content.startsWith(adminprefix + 'setname')) {
+  client.user.setUsername(argresult).then
+      message.channel.send(`Changing The Name To ..**${argresult}** `)
+} else
+if (message.content.startsWith(adminprefix + 'setava')) {
+  client.user.setAvatar(argresult);
+    message.channel.send(`Changing The Avatar To :**${argresult}** `);
+}
+});
+
+
+client.login(process.env.TOKEN);
